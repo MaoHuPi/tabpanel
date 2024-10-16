@@ -1,0 +1,213 @@
+* {
+	margin: 0px;
+	padding: 0px;
+	border: none;
+	user-select: none;
+	outline: none;
+}
+
+html,
+body {
+	width: 100vw;
+	height: 100vh;
+	background-color: #222222;
+	overflow: hidden;
+}
+
+#button-editPage {
+	--width: 50px;
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	width: var(--width);
+	height: var(--width);
+	background-color: #656565;
+	background-image: url('../image/fix.svg');
+	background-size: 80%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	border-radius: 0px 0px 0px 50%;
+	filter: hue-rotate(10deg);
+}
+
+#button-editPage {
+	--width: 50px;
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	width: var(--width);
+	height: var(--width);
+	background-color: #656565;
+	background-image: url('../image/fix.svg');
+	background-size: 80%;
+	background-position: center center;
+	background-repeat: no-repeat;
+	border-radius: 0px 0px 0px 50%;
+	filter: hue-rotate(10deg);
+}
+
+/* root */
+
+.root {
+	width: 100%;
+	height: 100%;
+}
+
+.root .centerBox {
+	width: 100%;
+	height: 100%;
+}
+
+/* v box */
+
+.vBox {
+	--slice: 0.5;
+	--resizeBar-width: 5px;
+	width: 100%;
+	height: 100%;
+	display: grid;
+	grid-template-columns: 100%;
+	grid-template-rows: calc(100% * var(--slice) - var(--resizeBar-width) * 0.5) var(--resizeBar-width) calc(100% * (1 - var(--slice)) - var(--resizeBar-width) * 0.5);
+}
+
+.vBox > .firstBox {
+	grid-area: 1/1/2/2;
+	width: 100%;
+	height: 100%;
+}
+
+.vBox > .resizeBar {
+	grid-area: 2/1/3/2;
+	width: 100%;
+	height: 100%;
+	background-color: #ffffff33;
+	transition: 0.5s;
+}
+.vBox > .resizeBar:hover {
+	background-color: gray;
+}
+
+.vBox > .secondBox {
+	grid-area: 3/1/4/2;
+	width: 100%;
+	height: 100%;
+}
+
+/* h box */
+
+.hBox {
+	--slice: 0.5;
+	--resizeBar-width: 5px;
+	width: 100%;
+	height: 100%;
+	display: grid;
+	grid-template-columns: calc(100% * var(--slice) - var(--resizeBar-width) * 0.5) var(--resizeBar-width) calc(100% * (1 - var(--slice)) - var(--resizeBar-width) * 0.5);
+	grid-template-rows: 100%;
+}
+
+.hBox > .firstBox {
+	grid-area: 1/1/2/2;
+	width: 100%;
+	height: 100%;
+}
+
+.hBox > .resizeBar {
+	grid-area: 1/2/2/3;
+	width: 100%;
+	height: 100%;
+	background-color: #ffffff33;
+	transition: 0.5s;
+}
+.hBox > .resizeBar:hover {
+	background-color: gray;
+}
+
+.hBox > .secondBox {
+	grid-area: 1/3/2/4;
+	width: 100%;
+	height: 100%;
+}
+
+/* component */
+
+.componentBox {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.componentBox .componentView {
+	width: 100%;
+	height: 100%;
+}
+
+.componentBox button[class^="button-"] {
+	--widthUnit: 50px;
+	--gap: 25px;
+	background-color: #ffffff44;
+	background-position: center center;
+	background-repeat: no-repeat;
+	border-radius: 10px;
+	position: absolute;
+	transition: 0.5s;
+}
+
+.componentBox button[class^="button-"]:hover {
+	background-color: #ffffff88;
+}
+
+.componentBox button.button-editComponent {
+	background-image: url('../image/edit.svg');
+	top: calc(50% - var(--gap)*0.5 - var(--widthUnit));
+	left: calc(50% - var(--gap)*0.5 - var(--widthUnit));
+	width: calc(var(--widthUnit)*2 + var(--gap));
+	height: var(--widthUnit);
+}
+
+.componentBox button.button-swapComponent {
+	background-image: url('../image/swap.svg');
+	top: calc(50% + var(--gap)*0.5);
+	left: calc(50% - var(--gap)*0.5 - var(--widthUnit));
+	width: var(--widthUnit);
+	height: var(--widthUnit);
+}
+
+.componentBox button.button-removeComponent {
+	background-image: url('../image/trashcan.svg');
+	top: calc(50% + var(--gap)*0.5);
+	left: calc(50% + var(--gap)*0.5);
+	width: var(--widthUnit);
+	height: var(--widthUnit);
+}
+
+.componentBox button[class^="button-extend"] {
+	background-image: url('../image/plus.svg');
+}
+
+.componentBox button.button-extendUpFromComponent {
+	top: calc(50% - var(--gap)*1.5 - var(--widthUnit)*2);
+	left: calc(50% - var(--gap)*0.5 - var(--widthUnit));
+	width: calc(var(--widthUnit)*2 + var(--gap));
+	height: var(--widthUnit);
+}
+
+.componentBox button.button-extendDownFromComponent {
+	top: calc(50% + var(--gap)*1.5 + var(--widthUnit));
+	left: calc(50% - var(--gap)*0.5 - var(--widthUnit));
+	width: calc(var(--widthUnit)*2 + var(--gap));
+	height: var(--widthUnit);
+}
+
+.componentBox button.button-extendLeftFromComponent {
+	top: calc(50% - var(--gap)*0.5 - var(--widthUnit));
+	left: calc(50% - var(--gap)*1.5 - var(--widthUnit)*2);
+	width: var(--widthUnit);
+	height: calc(var(--widthUnit)*2 + var(--gap));
+}
+
+.componentBox button.button-extendRightFromComponent {
+	top: calc(50% - var(--gap)*0.5 - var(--widthUnit));
+	left: calc(50% + var(--gap)*1.5 + var(--widthUnit));
+	width: var(--widthUnit);
+	height: calc(var(--widthUnit)*2 + var(--gap));
+}
